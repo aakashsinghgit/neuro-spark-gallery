@@ -11,10 +11,10 @@ const Index = () => {
       <Navigation />
       <main>
         <HeroSection />
+        <MLPlayground />
         <FeaturedProjects />
         <BlogPreview />
         <PortfolioProgress />
-        <MLPlayground />
       </main>
     </div>
   );

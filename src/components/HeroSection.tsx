@@ -14,17 +14,12 @@ const HeroSection = () => {
         <div className="animate-slide-up">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
             <span className="bg-gradient-hero bg-clip-text text-transparent">
-              Data Scientist
+              Aakash Singh
             </span>
-            <br />
-            <span className="text-foreground">& Builder</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-            Transforming complex data into actionable insights through 
-            <span className="text-primary font-semibold"> machine learning</span>, 
-            <span className="text-secondary font-semibold"> AI engineering</span>, and 
-            <span className="text-accent font-semibold"> innovative solutions</span>.
+            Welcome to my Data Science portfolio
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
