@@ -61,7 +61,7 @@ const HeroSection = () => {
             
             {/* Profile Info */}
             <div className="text-center md:text-left flex-1">
-              <h1 className="text-iron-man mb-4 mt-6 tracking-wide leading-tight">
+              <h1 className="text-iron-man mb-4 mt-8 tracking-wide leading-tight">
                 {profile.name}
               </h1>
               
