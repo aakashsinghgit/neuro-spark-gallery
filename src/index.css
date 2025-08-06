@@ -16,20 +16,20 @@
     --popover: 220 23% 11%;
     --popover-foreground: 213 31% 91%;
 
-    /* Primary - Deep Blue/Purple for professionalism */
-    --primary: 237 84% 63%;
-    --primary-foreground: 213 31% 91%;
-    --primary-glow: 245 100% 75%;
+    /* Primary - Iron Man Red */
+    --primary: 0 84% 60%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 0 100% 70%;
 
-    /* Secondary - Vibrant Teal for innovation */
-    --secondary: 186 100% 55%;
-    --secondary-foreground: 220 23% 11%;
-    --secondary-glow: 186 100% 70%;
+    /* Secondary - Metallic Gold */
+    --secondary: 45 100% 51%;
+    --secondary-foreground: 0 0% 8%;
+    --secondary-glow: 45 100% 65%;
 
-    /* Accent - Warm Orange for creativity */
-    --accent: 25 95% 65%;
-    --accent-foreground: 220 23% 11%;
-    --accent-glow: 25 100% 80%;
+    /* Accent - Arc Reactor Blue */
+    --accent: 194 100% 60%;
+    --accent-foreground: 0 0% 8%;
+    --accent-glow: 194 100% 75%;
 
     /* Supporting Colors */
     --muted: 217 19% 18%;
