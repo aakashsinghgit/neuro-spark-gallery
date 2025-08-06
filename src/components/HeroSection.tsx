@@ -46,14 +46,14 @@ const HeroSection = () => {
       <div className="absolute top-20 left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl animate-float"></div>
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "1s" }}></div>
 
-      <div className="relative z-10 max-w-4xl mx-auto">
+      <div className="relative z-10 max-w-6xl mx-auto pl-4 md:pl-8">{/* Pulled left with more space */}
         <div className="animate-slide-up">
           {/* Profile Section */}
           <div className="flex flex-col md:flex-row items-center gap-8 mb-12">
-            {/* Profile Image */}
+            {/* Profile Image - 30% larger */}
             <div className="flex-shrink-0">
-              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-accent p-1 animate-glow-blue">
-                <div className="w-full h-full rounded-full bg-muted flex items-center justify-center text-4xl font-bold text-foreground">
+              <div className="w-42 h-42 md:w-52 md:h-52 rounded-full bg-gradient-accent p-1 animate-glow-blue">
+                <div className="w-full h-full rounded-full bg-muted flex items-center justify-center text-5xl font-bold text-foreground">
                   AS
                 </div>
               </div>
@@ -61,11 +61,11 @@ const HeroSection = () => {
             
             {/* Profile Info */}
             <div className="text-center md:text-left flex-1">
-              <h1 className="text-iron-man mb-3">
+              <h1 className="text-iron-man mb-4 tracking-wide">
                 {profile.name}
               </h1>
               
-              <p className="text-lg md:text-xl text-accent font-semibold mb-2 animate-glow-blue">
+              <p className="text-lg md:text-xl text-accent font-semibold mb-2 tech-glow-text">
                 {profile.title}
               </p>
               
