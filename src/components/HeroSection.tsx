@@ -6,11 +6,27 @@ const HeroSection = () => {
   const { profile, cta, stats, journey } = heroConfig;
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8">
-      {/* Animated Background Elements */}
+    <section className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Iron Man Style Background Elements */}
       <div className="absolute inset-0 bg-gradient-hero opacity-5"></div>
+      
+      {/* Hexagon Pattern Background */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="hexagon-pattern"></div>
+      </div>
+      
+      {/* Circuit Lines */}
+      <div className="absolute top-10 left-0 w-full h-full opacity-20">
+        <svg className="w-full h-full" viewBox="0 0 800 600" fill="none">
+          <path d="M0 100 L200 100 L250 150 L400 150 L450 100 L600 100" stroke="currentColor" strokeWidth="1" className="text-primary/30"/>
+          <path d="M100 0 L100 200 L150 250 L150 400 L100 450 L100 600" stroke="currentColor" strokeWidth="1" className="text-accent/30"/>
+          <circle cx="250" cy="150" r="3" fill="currentColor" className="text-primary"/>
+          <circle cx="150" cy="250" r="3" fill="currentColor" className="text-accent"/>
+        </svg>
+      </div>
+      
       <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "1s" }}></div>
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "1s" }}></div>
 
       <div className="relative z-10 max-w-4xl mx-auto">
         <div className="animate-slide-up">
@@ -27,10 +43,8 @@ const HeroSection = () => {
             
             {/* Profile Info */}
             <div className="text-center md:text-left flex-1">
-              <h1 className="text-4xl md:text-5xl font-bold mb-3">
-                <span className="bg-gradient-hero bg-clip-text text-transparent">
-                  {profile.name}
-                </span>
+              <h1 className="text-4xl md:text-5xl font-bold mb-3 text-foreground">
+                {profile.name}
               </h1>
               
               <p className="text-lg md:text-xl text-primary font-semibold mb-2">
