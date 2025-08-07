@@ -16,30 +16,30 @@ const HeroSection = () => {
       </div>
       
       {/* Enhanced Circuit Lines */}
-      <div className="absolute top-10 left-0 w-full h-full opacity-40">
-        <svg className="w-full h-full" viewBox="0 0 800 600" fill="none" style={{ filter: 'drop-shadow(0 0 8px currentColor)' }}>
+      <div className="absolute top-10 left-0 w-full h-full opacity-25">
+        <svg className="w-full h-full" viewBox="0 0 800 600" fill="none" style={{ filter: 'drop-shadow(0 0 4px currentColor)' }}>
           {/* Main circuit paths */}
-          <path d="M0 100 L200 100 L250 150 L400 150 L450 100 L600 100 L800 100" stroke="currentColor" strokeWidth="2" className="text-primary/70 animate-pulse"/>
-          <path d="M100 0 L100 200 L150 250 L150 400 L100 450 L100 600" stroke="currentColor" strokeWidth="2" className="text-accent/70 animate-pulse"/>
-          <path d="M600 0 L600 150 L550 200 L550 350 L600 400 L600 600" stroke="currentColor" strokeWidth="2" className="text-primary/70 animate-pulse"/>
-          <path d="M0 300 L150 300 L200 250 L350 250 L400 300 L600 300 L800 300" stroke="currentColor" strokeWidth="2" className="text-accent/70 animate-pulse"/>
+          <path d="M0 100 L200 100 L250 150 L400 150 L450 100 L600 100 L800 100" stroke="currentColor" strokeWidth="1.5" className="text-primary/50"/>
+          <path d="M100 0 L100 200 L150 250 L150 400 L100 450 L100 600" stroke="currentColor" strokeWidth="1.5" className="text-accent/50"/>
+          <path d="M600 0 L600 150 L550 200 L550 350 L600 400 L600 600" stroke="currentColor" strokeWidth="1.5" className="text-primary/50"/>
+          <path d="M0 300 L150 300 L200 250 L350 250 L400 300 L600 300 L800 300" stroke="currentColor" strokeWidth="1.5" className="text-accent/50"/>
           
           {/* Secondary circuit network */}
-          <path d="M300 0 L300 100 L350 150 L350 200 L300 250 L300 350" stroke="currentColor" strokeWidth="1.5" className="text-secondary/50"/>
-          <path d="M500 50 L450 50 L400 100 L400 150 L450 200 L500 200" stroke="currentColor" strokeWidth="1.5" className="text-accent/50"/>
+          <path d="M300 0 L300 100 L350 150 L350 200 L300 250 L300 350" stroke="currentColor" strokeWidth="1" className="text-secondary/30"/>
+          <path d="M500 50 L450 50 L400 100 L400 150 L450 200 L500 200" stroke="currentColor" strokeWidth="1" className="text-accent/30"/>
           
           {/* Circuit nodes */}
-          <circle cx="250" cy="150" r="4" fill="currentColor" className="text-primary animate-glow-blue"/>
-          <circle cx="150" cy="250" r="4" fill="currentColor" className="text-accent animate-glow"/>
-          <circle cx="550" cy="200" r="4" fill="currentColor" className="text-primary animate-glow-blue"/>
-          <circle cx="400" cy="300" r="4" fill="currentColor" className="text-accent animate-glow"/>
-          <circle cx="300" cy="100" r="3" fill="currentColor" className="text-secondary animate-pulse"/>
-          <circle cx="450" cy="200" r="3" fill="currentColor" className="text-accent animate-pulse"/>
+          <circle cx="250" cy="150" r="3" fill="currentColor" className="text-primary animate-pulse"/>
+          <circle cx="150" cy="250" r="3" fill="currentColor" className="text-accent animate-pulse"/>
+          <circle cx="550" cy="200" r="3" fill="currentColor" className="text-primary animate-pulse"/>
+          <circle cx="400" cy="300" r="3" fill="currentColor" className="text-accent animate-pulse"/>
+          <circle cx="300" cy="100" r="2" fill="currentColor" className="text-secondary"/>
+          <circle cx="450" cy="200" r="2" fill="currentColor" className="text-accent"/>
           
           {/* Micro circuits */}
-          <rect x="240" y="140" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1" className="text-primary/60"/>
-          <rect x="540" y="190" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1" className="text-primary/60"/>
-          <rect x="140" y="240" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1" className="text-accent/60"/>
+          <rect x="240" y="140" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="0.75" className="text-primary/45"/>
+          <rect x="540" y="190" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="0.75" className="text-primary/45"/>
+          <rect x="140" y="240" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="0.75" className="text-accent/45"/>
         </svg>
       </div>
       
