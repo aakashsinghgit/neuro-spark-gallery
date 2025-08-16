@@ -15,31 +15,31 @@ const HeroSection = () => {
         <div className="hexagon-pattern"></div>
       </div>
       
-      {/* Enhanced Circuit Lines */}
+          {/* Enhanced Circuit Lines - Oriented around content */}
       <div className="absolute top-10 left-0 w-full h-full opacity-25">
         <svg className="w-full h-full" viewBox="0 0 800 600" fill="none" style={{ filter: 'drop-shadow(0 0 4px currentColor)' }}>
-          {/* Main circuit paths */}
-          <path d="M0 100 L200 100 L250 150 L400 150 L450 100 L600 100 L800 100" stroke="currentColor" strokeWidth="1.5" className="text-primary/50"/>
-          <path d="M100 0 L100 200 L150 250 L150 400 L100 450 L100 600" stroke="currentColor" strokeWidth="1.5" className="text-accent/50"/>
-          <path d="M600 0 L600 150 L550 200 L550 350 L600 400 L600 600" stroke="currentColor" strokeWidth="1.5" className="text-primary/50"/>
-          <path d="M0 300 L150 300 L200 250 L350 250 L400 300 L600 300 L800 300" stroke="currentColor" strokeWidth="1.5" className="text-accent/50"/>
+          {/* Main circuit paths - positioned around profile and content areas */}
+          <path d="M0 80 L180 80 L230 130 L380 130 L430 80 L800 80" stroke="currentColor" strokeWidth="1.5" className="text-primary/50"/>
+          <path d="M50 0 L50 180 L100 230 L100 380 L50 430 L50 600" stroke="currentColor" strokeWidth="1.5" className="text-accent/50"/>
+          <path d="M750 0 L750 130 L700 180 L700 330 L750 380 L750 600" stroke="currentColor" strokeWidth="1.5" className="text-primary/50"/>
+          <path d="M0 420 L130 420 L180 370 L330 370 L380 420 L800 420" stroke="currentColor" strokeWidth="1.5" className="text-accent/50"/>
           
-          {/* Secondary circuit network */}
-          <path d="M300 0 L300 100 L350 150 L350 200 L300 250 L300 350" stroke="currentColor" strokeWidth="1" className="text-secondary/30"/>
-          <path d="M500 50 L450 50 L400 100 L400 150 L450 200 L500 200" stroke="currentColor" strokeWidth="1" className="text-accent/30"/>
+          {/* Secondary circuit network - around stats area */}
+          <path d="M200 280 L200 380 L250 430 L250 500 L200 550" stroke="currentColor" strokeWidth="1" className="text-secondary/30"/>
+          <path d="M600 280 L550 280 L500 330 L500 380 L550 430 L600 430" stroke="currentColor" strokeWidth="1" className="text-accent/30"/>
           
-          {/* Circuit nodes */}
-          <circle cx="250" cy="150" r="3" fill="currentColor" className="text-primary animate-pulse"/>
-          <circle cx="150" cy="250" r="3" fill="currentColor" className="text-accent animate-pulse"/>
-          <circle cx="550" cy="200" r="3" fill="currentColor" className="text-primary animate-pulse"/>
-          <circle cx="400" cy="300" r="3" fill="currentColor" className="text-accent animate-pulse"/>
-          <circle cx="300" cy="100" r="2" fill="currentColor" className="text-secondary"/>
-          <circle cx="450" cy="200" r="2" fill="currentColor" className="text-accent"/>
+          {/* Circuit nodes - positioned to complement content */}
+          <circle cx="230" cy="130" r="3" fill="currentColor" className="text-primary animate-pulse"/>
+          <circle cx="100" cy="230" r="3" fill="currentColor" className="text-accent animate-pulse"/>
+          <circle cx="700" cy="180" r="3" fill="currentColor" className="text-primary animate-pulse"/>
+          <circle cx="380" cy="420" r="3" fill="currentColor" className="text-accent animate-pulse"/>
+          <circle cx="200" cy="380" r="2" fill="currentColor" className="text-secondary"/>
+          <circle cx="550" cy="330" r="2" fill="currentColor" className="text-accent"/>
           
-          {/* Micro circuits */}
-          <rect x="240" y="140" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="0.75" className="text-primary/45"/>
-          <rect x="540" y="190" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="0.75" className="text-primary/45"/>
-          <rect x="140" y="240" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="0.75" className="text-accent/45"/>
+          {/* Micro circuits - strategically placed */}
+          <rect x="220" y="120" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="0.75" className="text-primary/45"/>
+          <rect x="690" y="170" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="0.75" className="text-primary/45"/>
+          <rect x="90" y="220" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="0.75" className="text-accent/45"/>
         </svg>
       </div>
       
@@ -104,41 +104,26 @@ const HeroSection = () => {
             </Button>
           </div>
 
-          {/* Stats Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-            <div className="text-center p-4 rounded-lg bg-card/50 border border-border/50">
-              <div className="text-2xl md:text-3xl font-bold text-primary mb-1">{stats.projectsCompleted}</div>
-              <div className="text-xs md:text-sm text-muted-foreground">Projects Completed</div>
-            </div>
-            <div className="text-center p-4 rounded-lg bg-card/50 border border-border/50">
-              <div className="text-2xl md:text-3xl font-bold text-secondary mb-1">{stats.mlModelsDeployed}</div>
-              <div className="text-xs md:text-sm text-muted-foreground">ML Models Deployed</div>
-            </div>
-            <div className="text-center p-4 rounded-lg bg-card/50 border border-border/50">
-              <div className="text-2xl md:text-3xl font-bold text-accent mb-1">{stats.linesOfCode}</div>
-              <div className="text-xs md:text-sm text-muted-foreground">Lines of Code</div>
-            </div>
-            <div className="text-center p-4 rounded-lg bg-card/50 border border-border/50">
-              <div className="text-2xl md:text-3xl font-bold text-primary mb-1">{stats.yearsExperience}+</div>
-              <div className="text-xs md:text-sm text-muted-foreground">Years Experience</div>
-            </div>
-          </div>
-
-          {/* Learning Journey */}
-          <div className="card-project">
-            <h3 className="text-xl font-bold text-foreground mb-6">{journey.title}</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {journey.milestones.map((milestone, index) => (
-                <div key={index} className="text-center">
-                  <div className={`w-3 h-3 rounded-full mx-auto mb-3 ${
-                    milestone.status === 'completed' ? 'bg-gradient-primary' :
-                    milestone.status === 'in-progress' ? 'bg-gradient-secondary' :
-                    'bg-muted'
-                  }`}></div>
-                  <h4 className="font-semibold text-sm text-foreground mb-2">{milestone.phase}</h4>
-                  <p className="text-xs text-muted-foreground">{milestone.description}</p>
-                </div>
-              ))}
+          {/* Stats Section */}
+          <div className="card-project mb-12">
+            <h3 className="text-xl font-bold text-foreground mb-6">Key Achievements</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="text-center">
+                <div className="text-2xl md:text-3xl font-bold text-primary mb-1">{stats.projectsCompleted}</div>
+                <div className="text-xs md:text-sm text-muted-foreground">Projects Completed</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl md:text-3xl font-bold text-secondary mb-1">{stats.mlModelsDeployed}</div>
+                <div className="text-xs md:text-sm text-muted-foreground">ML Models Deployed</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl md:text-3xl font-bold text-accent mb-1">{stats.linesOfCode}</div>
+                <div className="text-xs md:text-sm text-muted-foreground">Lines of Code</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl md:text-3xl font-bold text-primary mb-1">{stats.yearsExperience}+</div>
+                <div className="text-xs md:text-sm text-muted-foreground">Years Experience</div>
+              </div>
             </div>
           </div>
         </div>
