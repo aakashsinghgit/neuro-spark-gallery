@@ -6,7 +6,7 @@ const HeroSection = () => {
   const { profile, cta, stats, journey } = heroConfig;
 
   return (
-    <section className="py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section className="pt-20 pb-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Iron Man Style Background Elements */}
       <div className="absolute inset-0 bg-gradient-hero opacity-5"></div>
       
