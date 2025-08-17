@@ -10,19 +10,19 @@ export const heroConfig = {
   
   cta: {
     primary: {
-      text: "View Projects",
-      href: "/projects",
-      icon: "ArrowRight"
+      text: "LinkedIn",
+      href: "https://linkedin.com/in/aakash-singh-data-scientist", // Replace with your LinkedIn
+      icon: "Linkedin"
     },
     secondary: {
+      text: "Kaggle",
+      href: "https://kaggle.com/aakashsingh", // Replace with your Kaggle
+      icon: "Trophy"
+    },
+    tertiary: {
       text: "Download Resume",
       href: "/resume.pdf", // Add your resume to public folder
       icon: "Download"
-    },
-    tertiary: {
-      text: "Get In Touch",
-      href: "mailto:your.email@example.com", // Replace with your email
-      icon: "Mail"
     }
   },
 

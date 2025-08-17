@@ -1,12 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Download, Mail, MapPin } from "lucide-react";
+import { Download, Mail, MapPin, Linkedin, Trophy } from "lucide-react";
 import { heroConfig } from "@/config/hero";
 
 const HeroSection = () => {
   const { profile, cta, stats, journey } = heroConfig;
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section className="py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Iron Man Style Background Elements */}
       <div className="absolute inset-0 bg-gradient-hero opacity-5"></div>
       
@@ -81,31 +81,31 @@ const HeroSection = () => {
           </div>
 
           {/* Call to Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-center mb-8">
             <Button className="btn-hero group" asChild>
-              <a href={cta.primary.href}>
+              <a href={cta.primary.href} target="_blank" rel="noopener noreferrer">
+                <Linkedin className="mr-2 w-5 h-5" />
                 {cta.primary.text}
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
             
             <Button variant="outline" className="border-border/50 hover:bg-muted/50 group" asChild>
-              <a href={cta.secondary.href} download>
-                <Download className="mr-2 w-4 h-4" />
+              <a href={cta.secondary.href} target="_blank" rel="noopener noreferrer">
+                <Trophy className="mr-2 w-4 h-4" />
                 {cta.secondary.text}
               </a>
             </Button>
             
             <Button variant="ghost" className="hover:bg-muted/50 group" asChild>
-              <a href={cta.tertiary.href}>
-                <Mail className="mr-2 w-4 h-4" />
+              <a href={cta.tertiary.href} download>
+                <Download className="mr-2 w-4 h-4" />
                 {cta.tertiary.text}
               </a>
             </Button>
           </div>
 
           {/* Stats Section */}
-          <div className="card-project mb-12">
+          <div className="card-project mb-6">
             <h3 className="text-xl font-bold text-foreground mb-6">Key Achievements</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">
