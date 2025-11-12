@@ -20,15 +20,15 @@ const HeroSection = () => {
             
             {/* Profile Info */}
             <div className="text-center md:text-left flex-1">
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight font-playfair">
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 font-playfair leading-tight">
                 {profile.name}
               </h1>
               
-              <p className="text-lg md:text-xl text-accent font-medium mb-3">
+              <p className="text-lg md:text-xl text-accent font-medium mb-3 tracking-wide">
                 {profile.title}
               </p>
               
-              <p className="text-muted-foreground mb-4 leading-relaxed max-w-2xl">
+              <p className="text-muted-foreground mb-4 max-w-2xl leading-relaxed">
                 {profile.bio}
               </p>
               
