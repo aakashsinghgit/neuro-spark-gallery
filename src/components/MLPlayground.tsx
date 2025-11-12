@@ -78,7 +78,7 @@ const MLPlayground = () => {
     <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="text-center mb-8">
         <div className="flex items-center justify-center gap-3 mb-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground font-playfair">
             ML Playground
           </h2>
           <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">

@@ -20,7 +20,7 @@ const HeroSection = () => {
             
             {/* Profile Info */}
             <div className="text-center md:text-left flex-1">
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight font-playfair">
                 {profile.name}
               </h1>
               
@@ -65,7 +65,7 @@ const HeroSection = () => {
 
           {/* Stats Section */}
           <div className="border border-border rounded-lg p-8 bg-card shadow-sm">
-            <h3 className="text-xl font-semibold text-foreground mb-6">Key Achievements</h3>
+            <h3 className="text-xl font-semibold text-foreground mb-6 font-playfair">Key Achievements</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               <div className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-foreground mb-2">{stats.projectsCompleted}</div>

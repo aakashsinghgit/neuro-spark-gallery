@@ -125,7 +125,7 @@ const OpenSource = () => {
         {/* Header */}
         <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-16">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 font-playfair">
               <span className="bg-gradient-hero bg-clip-text text-transparent">
                 Open Source
               </span>
@@ -179,7 +179,7 @@ const OpenSource = () => {
 
         {/* Featured Repositories */}
         <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-16">
-          <h2 className="text-3xl font-bold text-foreground mb-8">Featured Repositories</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-8 font-playfair">Featured Repositories</h2>
           
           <div className="grid lg:grid-cols-2 gap-6">
             {featuredRepos.map((repo, index) => (
@@ -251,7 +251,7 @@ const OpenSource = () => {
 
         {/* Contributions */}
         <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-foreground mb-8">Recent Contributions</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-8 font-playfair">Recent Contributions</h2>
           
           <div className="space-y-4">
             {contributions.map((contribution, index) => (

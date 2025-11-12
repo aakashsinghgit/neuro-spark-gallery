@@ -90,7 +90,7 @@ const Blog = () => {
         {/* Header */}
         <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-16">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 font-playfair">
               <span className="bg-gradient-hero bg-clip-text text-transparent">
                 Tech Blog
               </span>
@@ -125,7 +125,7 @@ const Blog = () => {
                 </div>
               </div>
               
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 leading-tight">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 leading-tight font-playfair">
                 {featuredPost.title}
               </h2>
               
@@ -151,7 +151,7 @@ const Blog = () => {
 
         {/* All Posts */}
         <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-          <h2 className="text-2xl font-bold text-foreground mb-8">All Posts</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-8 font-playfair">All Posts</h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {regularPosts.map((post, index) => (

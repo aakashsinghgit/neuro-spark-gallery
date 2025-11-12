@@ -120,7 +120,7 @@ const Projects = () => {
         {/* Header */}
         <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-12">
           <div className="text-center mb-8">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 font-playfair">
               <span className="bg-gradient-hero bg-clip-text text-transparent">
                 All Projects
               </span>

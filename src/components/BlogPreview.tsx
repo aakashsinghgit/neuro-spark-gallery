@@ -35,7 +35,7 @@ const BlogPreview = () => {
     <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="flex items-center justify-between mb-12">
         <div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 font-playfair">
             <span className="bg-gradient-hero bg-clip-text text-transparent">
               Latest Insights
             </span>

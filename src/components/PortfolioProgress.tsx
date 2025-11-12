@@ -52,7 +52,7 @@ const PortfolioProgress = () => {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 font-playfair">
           <span className="bg-gradient-hero bg-clip-text text-transparent">
             Progress Tracker
           </span>
@@ -65,7 +65,7 @@ const PortfolioProgress = () => {
       <div className="space-y-8">
         {/* Progress Metrics */}
         <div className="space-y-8">
-          <h3 className="text-2xl font-bold text-foreground mb-6">Current Goals</h3>
+          <h3 className="text-2xl font-bold text-foreground mb-6 font-playfair">Current Goals</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {stats.map((stat, index) => {
