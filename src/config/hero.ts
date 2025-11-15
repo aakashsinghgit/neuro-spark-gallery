@@ -7,6 +7,12 @@ export const heroConfig = {
     profileImage: "/profile-photo.jpg", // Add your profile photo to public folder
     location: "India",
   },
+
+  story: {
+    title: "My Story",
+    text: "I began my journey in data science with a fascination for how data could tell stories and drive decisions. Over the years, I've worked on diverse projects ranging from predictive modeling to deploying ML solutions in production. What excites me most is the intersection of technology and real-world impact—building systems that not only work but make a difference.",
+    readMoreLink: "/story" // Page will be created later
+  },
   
   cta: {
     primary: {
@@ -32,6 +38,45 @@ export const heroConfig = {
     linesOfCode: "15K+",  // Estimate or connect to GitHub API
     yearsExperience: 2    // Your experience in years
   },
+
+  goals: [
+    {
+      label: "ML Engineering",
+      current: 3,
+      target: 10,
+      icon: "Cpu"
+    },
+    {
+      label: "AI Engineering",
+      current: 2,
+      target: 10,
+      icon: "Brain"
+    },
+    {
+      label: "Deep Learning",
+      current: 1,
+      target: 10,
+      icon: "Zap"
+    },
+    {
+      label: "Data Science Core",
+      current: 2,
+      target: 5,
+      icon: "Database"
+    },
+    {
+      label: "ML Playgrounds",
+      current: 6,
+      target: 10,
+      icon: "Play"
+    },
+    {
+      label: "Research Papers",
+      current: 0,
+      target: 5,
+      icon: "BookOpen"
+    }
+  ],
 
   journey: {
     title: "My Data Science Journey",
