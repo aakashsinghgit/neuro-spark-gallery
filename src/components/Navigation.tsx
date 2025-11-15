@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Brain, Github, BookOpen, FolderOpen, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
+import MLPlaygroundDrawer from "@/components/MLPlaygroundDrawer";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,6 +53,9 @@ const Navigation = () => {
               );
             })}
             
+            {/* ML Playground Drawer */}
+            <MLPlaygroundDrawer />
+            
             {/* Theme Toggle */}
             <Button
               variant="ghost"
@@ -67,6 +71,7 @@ const Navigation = () => {
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center gap-2">
+            <MLPlaygroundDrawer />
             <Button
               variant="ghost"
               size="icon"
