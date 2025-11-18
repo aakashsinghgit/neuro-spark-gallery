@@ -20,71 +20,72 @@ const HeroSection = () => {
     <section className="pt-20 pb-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="animate-fade-in">
-          {/* Profile Section */}
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-12">
-            {/* Profile Image */}
+          {/* Profile Section - Compact Layout */}
+          <div className="flex flex-col md:flex-row gap-8 mb-12">
+            {/* Profile Image - Rectangular */}
             <div className="flex-shrink-0">
-              <div className="w-40 h-40 md:w-48 md:h-48 rounded-full border-2 border-border overflow-hidden bg-muted flex items-center justify-center">
-                <span className="text-5xl font-bold text-foreground">AS</span>
+              <div className="w-full md:w-48 h-56 rounded-lg border-2 border-border overflow-hidden bg-muted flex items-center justify-center">
+                <span className="text-6xl font-bold text-foreground">AS</span>
               </div>
             </div>
             
-            {/* Profile Info */}
-            <div className="text-center md:text-left flex-1">
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 font-playfair leading-tight">
-                {profile.name}
-              </h1>
+            {/* Profile Info - Compact */}
+            <div className="flex-1 space-y-4">
+              {/* Line 1: Name, Title, and Headline Tag */}
+              <div className="flex flex-wrap items-baseline gap-3">
+                <h1 className="text-3xl md:text-4xl font-bold text-foreground font-playfair">
+                  {profile.name}
+                </h1>
+                <span className="text-base md:text-lg text-muted-foreground">•</span>
+                <p className="text-base md:text-lg text-accent font-medium">
+                  {profile.title}
+                </p>
+                <span className="text-base md:text-lg text-muted-foreground">•</span>
+                <p className="text-base md:text-lg text-muted-foreground">
+                  {profile.bio}
+                </p>
+              </div>
               
-              <p className="text-lg md:text-xl text-accent font-medium mb-3 tracking-wide">
-                {profile.title}
-              </p>
-              
-              <p className="text-muted-foreground mb-4 max-w-2xl leading-relaxed">
-                {profile.bio}
-              </p>
-              
-              <div className="flex items-center justify-center md:justify-start gap-2 text-sm text-muted-foreground">
-                <MapPin className="w-4 h-4" />
-                {profile.location}
+              {/* Line 2: Location and Action Buttons */}
+              <div className="flex flex-wrap items-center gap-3">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <MapPin className="w-4 h-4" />
+                  {profile.location}
+                </div>
+                <span className="text-muted-foreground">•</span>
+                <Button size="sm" asChild>
+                  <a href={cta.primary.href} target="_blank" rel="noopener noreferrer">
+                    <Linkedin className="mr-2 w-4 h-4" />
+                    {cta.primary.text}
+                  </a>
+                </Button>
+                <Button size="sm" variant="outline" asChild>
+                  <a href={cta.secondary.href} target="_blank" rel="noopener noreferrer">
+                    <Trophy className="mr-2 w-4 h-4" />
+                    {cta.secondary.text}
+                  </a>
+                </Button>
+                <Button size="sm" variant="ghost" asChild>
+                  <a href={cta.tertiary.href} download>
+                    <Download className="mr-2 w-4 h-4" />
+                    {cta.tertiary.text}
+                  </a>
+                </Button>
+              </div>
+
+              {/* My Story - 3 Lines Only */}
+              <div className="pt-2">
+                <h3 className="text-lg font-semibold text-foreground mb-2 font-playfair">{story.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 mb-2">
+                  {story.text}
+                </p>
+                <Button variant="link" asChild className="px-0 h-auto text-sm">
+                  <Link to={story.readMoreLink}>
+                    Read More <ArrowRight className="ml-1 w-3 h-3" />
+                  </Link>
+                </Button>
               </div>
             </div>
-          </div>
-
-          {/* Call to Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start items-center mb-12">
-            <Button asChild>
-              <a href={cta.primary.href} target="_blank" rel="noopener noreferrer">
-                <Linkedin className="mr-2 w-4 h-4" />
-                {cta.primary.text}
-              </a>
-            </Button>
-            
-            <Button variant="outline" asChild>
-              <a href={cta.secondary.href} target="_blank" rel="noopener noreferrer">
-                <Trophy className="mr-2 w-4 h-4" />
-                {cta.secondary.text}
-              </a>
-            </Button>
-            
-            <Button variant="ghost" asChild>
-              <a href={cta.tertiary.href} download>
-                <Download className="mr-2 w-4 h-4" />
-                {cta.tertiary.text}
-              </a>
-            </Button>
-          </div>
-
-          {/* My Story Section */}
-          <div className="border border-border rounded-lg p-8 bg-card shadow-sm mb-12">
-            <h3 className="text-xl font-semibold text-foreground mb-4 font-playfair">{story.title}</h3>
-            <p className="text-muted-foreground leading-relaxed mb-4">
-              {story.text}
-            </p>
-            <Button variant="ghost" asChild className="px-0">
-              <Link to={story.readMoreLink}>
-                Read More <ArrowRight className="ml-2 w-4 h-4" />
-              </Link>
-            </Button>
           </div>
 
           {/* Key Achievements & Current Goals Combined */}
