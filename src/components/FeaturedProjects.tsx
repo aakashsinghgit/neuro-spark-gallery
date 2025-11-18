@@ -206,14 +206,21 @@ const FeaturedProjects = () => {
           return (
             <div key={sectionIndex} className="relative">
               {/* Section Header */}
-              <div className="text-center mb-12">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 mb-4">
-                  <Icon className="w-8 h-8 text-primary" />
+              <div className="mb-8">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className={`p-2 rounded-lg ${
+                    section.category === 'ml-engineering' ? 'bg-gradient-primary' :
+                    section.category === 'ai-engineering' ? 'bg-gradient-secondary' :
+                    section.category === 'deep-learning' ? 'bg-gradient-accent' :
+                    'bg-gradient-primary'
+                  }`}>
+                    <Icon className="w-5 h-5 text-primary-foreground" />
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold font-playfair">
+                    {section.title}
+                  </h3>
                 </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-                  {section.title}
-                </h3>
-                <p className="text-muted-foreground max-w-lg mx-auto">
+                <p className="text-base text-muted-foreground ml-12">
                   {section.description}
                 </p>
               </div>
