@@ -9,9 +9,9 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <FloatingMLPlayground />
       <main>
         <HeroSection />
+        <FloatingMLPlayground />
         <FeaturedProjects />
         <BlogPreview />
         <PortfolioProgress />

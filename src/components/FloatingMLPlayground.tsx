@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
-import { FlaskConical, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { FlaskConical, Sparkles } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -11,33 +10,10 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
 import { Play, ExternalLink, Users } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const FloatingMLPlayground = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // Find the ML Engineering section (FeaturedProjects component)
-      const mlSection = document.querySelector('[id*="projects"], [class*="FeaturedProjects"]');
-      if (mlSection) {
-        const rect = mlSection.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        
-        // Hide when scrolled past the ML Engineering section
-        if (rect.top < -rect.height) {
-          setIsVisible(false);
-        } else {
-          setIsVisible(true);
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check initial position
-    
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const playgroundApps = [
     {
@@ -109,49 +85,63 @@ const FloatingMLPlayground = () => {
     }
   };
 
-  if (!isVisible) return null;
-
   return (
     <>
-      {/* Floating trigger button */}
+      {/* Clickable Banner */}
       <div 
-        className="fixed right-0 top-1/3 z-40 animate-fade-in"
-        style={{ transform: 'translateY(-50%)' }}
+        onClick={() => setIsOpen(true)}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 cursor-pointer group"
       >
-        <Button
-          onClick={() => setIsOpen(true)}
-          className="rounded-l-lg rounded-r-none shadow-lg hover:shadow-xl transition-all duration-300 h-32 px-3 bg-gradient-primary text-primary-foreground border-l-4 border-primary/50 hover:px-4 group"
-          style={{ writingMode: 'vertical-rl' }}
-        >
-          <FlaskConical className="w-5 h-5 mb-2 group-hover:animate-pulse" />
-          <span className="text-sm font-bold tracking-wider">ML PLAYGROUND</span>
-          <span className="text-xs mt-2 opacity-80">Try Demos →</span>
-        </Button>
+        <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-primary/10 via-primary/5 to-accent/10 border border-primary/20 p-6 transition-all duration-300 hover:shadow-lg hover:border-primary/40">
+          {/* Background decoration */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10 group-hover:bg-primary/10 transition-colors" />
+          
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <div className="bg-gradient-primary p-3 rounded-lg">
+                <FlaskConical className="w-6 h-6 text-primary-foreground" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold font-playfair flex items-center gap-2">
+                  ML Playground
+                  <Sparkles className="w-4 h-4 text-primary" />
+                </h3>
+                <p className="text-sm text-muted-foreground mt-1">
+                  Explore interactive ML demos and experiments
+                </p>
+              </div>
+            </div>
+            
+            <Button 
+              variant="outline" 
+              className="gap-2 group-hover:bg-primary group-hover:text-primary-foreground transition-all"
+            >
+              Try Demos
+              <Play className="w-4 h-4" />
+            </Button>
+          </div>
+        </div>
       </div>
 
-      {/* Full screen drawer */}
+      {/* Drawer */}
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
-        <SheetContent side="right" className="w-full max-w-full sm:max-w-full p-0">
-          <div className="h-full flex flex-col">
-            <SheetHeader className="px-6 py-4 border-b border-border">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <FlaskConical className="w-6 h-6 text-primary" />
-                  <SheetTitle className="text-2xl font-playfair">ML Playground</SheetTitle>
-                  <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
-                    Interactive Demos
-                  </Badge>
-                </div>
-              </div>
-              <SheetDescription>
-                Explore ML concepts through interactive demos and tools
-              </SheetDescription>
-            </SheetHeader>
-            
-            <ScrollArea className="flex-1 px-6 py-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-                {playgroundApps.map((app, index) => (
-                  <div key={index} className="card-project group h-full">
+        <SheetContent side="right" className="w-full sm:max-w-2xl p-0">
+          <SheetHeader className="p-6">
+            <SheetTitle className="flex items-center gap-3">
+              <span className="text-2xl font-playfair">ML Playground</span>
+              <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
+                Interactive Demos
+              </Badge>
+            </SheetTitle>
+            <SheetDescription>
+              Explore ML concepts through interactive demos and tools
+            </SheetDescription>
+          </SheetHeader>
+          
+          <ScrollArea className="h-[calc(100vh-120px)] px-6">
+            <div className="space-y-4">
+              {playgroundApps.map((app, index) => (
+                <div key={index} className="card-project group">
                     {/* App Header */}
                     <div className="flex items-start justify-between mb-4">
                       <div className={`${app.color} p-2 rounded-lg`}>
@@ -190,7 +180,7 @@ const FloatingMLPlayground = () => {
                     </div>
 
                     {/* Footer */}
-                    <div className="flex items-center justify-between pt-4 border-t border-border mt-auto">
+                    <div className="flex items-center justify-between pt-4 border-t border-border">
                       <Badge 
                         variant="outline" 
                         className={`text-xs ${getDifficultyColor(app.difficulty)}`}
@@ -205,12 +195,11 @@ const FloatingMLPlayground = () => {
                         Try Demo
                         <ExternalLink className="w-3 h-3" />
                       </Button>
-                    </div>
                   </div>
-                ))}
-              </div>
-            </ScrollArea>
-          </div>
+                </div>
+              ))}
+            </div>
+          </ScrollArea>
         </SheetContent>
       </Sheet>
     </>
