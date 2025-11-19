@@ -30,63 +30,57 @@ const HeroSection = () => {
             </div>
             
             {/* Profile Info + My Story */}
-            <div className="flex-1 flex flex-col justify-between">
-              {/* Name and Title */}
-              <div className="space-y-3">
-                <div>
-                  <h1 className="text-4xl md:text-5xl font-bold text-foreground font-playfair mb-2">
-                    {profile.name}
-                  </h1>
-                  <p className="text-xl text-accent font-medium">
-                    {profile.title}
-                  </p>
-                  <p className="text-base text-muted-foreground mt-1">
-                    {profile.bio}
-                  </p>
-                </div>
+            <div className="flex-1 flex flex-col gap-4">
+              {/* Name and Tagline */}
+              <div>
+                <h1 className="text-4xl md:text-5xl font-bold text-foreground font-playfair mb-2">
+                  {profile.name}
+                </h1>
+                <p className="text-base text-muted-foreground">
+                  {profile.bio}
+                </p>
+              </div>
 
-                {/* My Story */}
-                <div className="pt-3 border-t border-border">
-                  <h3 className="text-lg font-semibold text-foreground mb-2 font-playfair">{story.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-4 mb-2">
-                    {story.text}
-                  </p>
-                  <Button variant="link" asChild className="px-0 h-auto text-sm">
-                    <Link to={story.readMoreLink}>
-                      Read More <ArrowRight className="ml-1 w-3 h-3" />
-                    </Link>
+              {/* My Story Content */}
+              <div className="space-y-2">
+                <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                  {story.text}
+                </p>
+                <Button variant="link" asChild className="px-0 h-auto text-sm">
+                  <Link to={story.readMoreLink}>
+                    read my story <ArrowRight className="ml-1 w-3 h-3" />
+                  </Link>
+                </Button>
+              </div>
+
+              {/* Thin Banner: Location and Action Buttons */}
+              <div className="p-3 rounded-lg border border-border bg-card/50 backdrop-blur-sm">
+                <div className="flex flex-wrap items-center justify-center gap-3">
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <MapPin className="w-4 h-4" />
+                    {profile.location}
+                  </div>
+                  <span className="text-muted-foreground hidden sm:inline">•</span>
+                  <Button size="sm" asChild>
+                    <a href={cta.primary.href} target="_blank" rel="noopener noreferrer">
+                      <Linkedin className="mr-2 w-4 h-4" />
+                      {cta.primary.text}
+                    </a>
+                  </Button>
+                  <Button size="sm" variant="outline" asChild>
+                    <a href={cta.secondary.href} target="_blank" rel="noopener noreferrer">
+                      <Trophy className="mr-2 w-4 h-4" />
+                      {cta.secondary.text}
+                    </a>
+                  </Button>
+                  <Button size="sm" variant="ghost" asChild>
+                    <a href={cta.tertiary.href} download>
+                      <Download className="mr-2 w-4 h-4" />
+                      {cta.tertiary.text}
+                    </a>
                   </Button>
                 </div>
               </div>
-            </div>
-          </div>
-
-          {/* Thin Banner: Location and Action Buttons */}
-          <div className="mb-12 p-4 rounded-lg border border-border bg-card/50 backdrop-blur-sm">
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <MapPin className="w-4 h-4" />
-                {profile.location}
-              </div>
-              <span className="text-muted-foreground hidden sm:inline">•</span>
-              <Button size="sm" asChild>
-                <a href={cta.primary.href} target="_blank" rel="noopener noreferrer">
-                  <Linkedin className="mr-2 w-4 h-4" />
-                  {cta.primary.text}
-                </a>
-              </Button>
-              <Button size="sm" variant="outline" asChild>
-                <a href={cta.secondary.href} target="_blank" rel="noopener noreferrer">
-                  <Trophy className="mr-2 w-4 h-4" />
-                  {cta.secondary.text}
-                </a>
-              </Button>
-              <Button size="sm" variant="ghost" asChild>
-                <a href={cta.tertiary.href} download>
-                  <Download className="mr-2 w-4 h-4" />
-                  {cta.tertiary.text}
-                </a>
-              </Button>
             </div>
           </div>
 
