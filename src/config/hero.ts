@@ -11,7 +11,7 @@ export const heroConfig = {
   story: {
     title: "My Story",
     text: "I began my journey in data science with a fascination for how data could tell stories and drive decisions. Over the years, I've worked on diverse projects ranging from predictive modeling to deploying ML solutions in production. What excites me most is the intersection of technology and real-world impact—building systems that not only work but make a difference.",
-    readMoreLink: "/story" // Page will be created later
+    readMoreLink: "/my-story"
   },
   
   cta: {
