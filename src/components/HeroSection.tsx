@@ -53,33 +53,31 @@ const HeroSection = () => {
                 </Button>
               </div>
 
-              {/* Thin Banner: Location and Action Buttons */}
-              <div className="p-3 rounded-lg border border-border bg-card/50 backdrop-blur-sm">
-                <div className="flex flex-wrap items-center justify-center gap-3">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <MapPin className="w-4 h-4" />
-                    {profile.location}
-                  </div>
-                  <span className="text-muted-foreground hidden sm:inline">•</span>
-                  <Button size="sm" asChild>
-                    <a href={cta.primary.href} target="_blank" rel="noopener noreferrer">
-                      <Linkedin className="mr-2 w-4 h-4" />
-                      {cta.primary.text}
-                    </a>
-                  </Button>
-                  <Button size="sm" variant="outline" asChild>
-                    <a href={cta.secondary.href} target="_blank" rel="noopener noreferrer">
-                      <Trophy className="mr-2 w-4 h-4" />
-                      {cta.secondary.text}
-                    </a>
-                  </Button>
-                  <Button size="sm" variant="ghost" asChild>
-                    <a href={cta.tertiary.href} download>
-                      <Download className="mr-2 w-4 h-4" />
-                      {cta.tertiary.text}
-                    </a>
-                  </Button>
+              {/* Location and Action Buttons */}
+              <div className="flex flex-wrap items-center gap-3 text-sm">
+                <div className="flex items-center gap-2 text-muted-foreground">
+                  <MapPin className="w-4 h-4" />
+                  {profile.location}
                 </div>
+                <span className="text-muted-foreground">•</span>
+                <Button size="sm" asChild>
+                  <a href={cta.primary.href} target="_blank" rel="noopener noreferrer">
+                    <Linkedin className="mr-2 w-4 h-4" />
+                    {cta.primary.text}
+                  </a>
+                </Button>
+                <Button size="sm" variant="outline" asChild>
+                  <a href={cta.secondary.href} target="_blank" rel="noopener noreferrer">
+                    <Trophy className="mr-2 w-4 h-4" />
+                    {cta.secondary.text}
+                  </a>
+                </Button>
+                <Button size="sm" variant="ghost" asChild>
+                  <a href={cta.tertiary.href} download>
+                    <Download className="mr-2 w-4 h-4" />
+                    {cta.tertiary.text}
+                  </a>
+                </Button>
               </div>
             </div>
           </div>
