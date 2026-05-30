@@ -10,17 +10,31 @@ export const mlEngineering: SectionContent = {
   tagline: "Production ML",
   description: "Production ML systems, MLOps, and scalable model deployment.",
   projects: [
-    // Awaiting 3 real projects. Example shape:
-    // {
-    //   title: "Project name",
-    //   description: "One-paragraph what/why/impact.",
-    //   tags: ["Python", "FastAPI", "Docker"],
-    //   githubUrl: "https://github.com/...",
-    //   demoUrl: "https://...onrender.com",
-    //   image: "/projects/foo.jpg",
-    //   articles: [
-    //     { title: "Deep dive on Substack", url: "https://...", source: "Substack" },
-    //   ],
-    // },
+    {
+      title: "Loan Criterion Predictor",
+      description:
+        "End-to-end ML pipeline that predicts loan eligibility from applicant financial and demographic features. Trained, packaged, and deployed as a live web app for real-time inference.",
+      tags: ["Python", "scikit-learn", "Flask", "Render", "MLOps"],
+      githubUrl:
+        "https://github.com/aakashsinghgit/ML-Engineering-Projects/tree/main/Projects/P1_Loan_Criterion",
+      demoUrl: "https://loan-criterion-predictor.onrender.com",
+    },
+    {
+      title: "Health Insurance Price Predictor",
+      description:
+        "Regression model that estimates health insurance premiums from personal and lifestyle attributes. Served behind a deployed web interface for interactive what-if pricing.",
+      tags: ["Python", "scikit-learn", "Flask", "Render", "Regression"],
+      githubUrl:
+        "https://github.com/aakashsinghgit/ML-Engineering-Projects/tree/main/Projects/P2_HealthInsurance_Price",
+      demoUrl: "https://health-insurance-predictor-wa3a.onrender.com",
+    },
+    {
+      title: "Energy Consumption — MLflow Experiments",
+      description:
+        "Energy consumption forecasting workflow with full experiment tracking, parameter logging, and model registry via MLflow. Terminal-driven MLOps project (no hosted demo).",
+      tags: ["Python", "MLflow", "Forecasting", "Experiment Tracking"],
+      githubUrl:
+        "https://github.com/aakashsinghgit/ML-Engineering-Projects/tree/main/Projects/P3_Energy_Consumption_mlflow",
+    },
   ],
 };
