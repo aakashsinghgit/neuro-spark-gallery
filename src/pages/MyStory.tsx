@@ -182,7 +182,7 @@ const MyStory = () => {
               </a>
             </Button>
             <Button variant="outline" asChild>
-              <Link to="/projects">View Projects</Link>
+              <Link to="/">Back to Home</Link>
             </Button>
           </div>
         </section>
