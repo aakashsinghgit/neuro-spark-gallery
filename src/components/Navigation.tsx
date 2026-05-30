@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Brain, Github, BookOpen, FolderOpen, Sun, Moon } from "lucide-react";
+import { Menu, X, Brain, User, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 
@@ -10,9 +10,7 @@ const Navigation = () => {
   const { theme, setTheme } = useTheme();
 
   const navigation = [
-    { name: "Projects", href: "/projects", icon: FolderOpen },
-    { name: "Blog", href: "/blog", icon: BookOpen },
-    { name: "Open Source", href: "/open-source", icon: Github },
+    { name: "My Story", href: "/my-story", icon: User },
   ];
 
   const isActive = (path: string) => location.pathname === path;
