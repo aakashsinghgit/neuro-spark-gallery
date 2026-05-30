@@ -1,9 +1,7 @@
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
-import FeaturedProjects from "@/components/FeaturedProjects";
-import BlogPreview from "@/components/BlogPreview";
-import PortfolioProgress from "@/components/PortfolioProgress";
-import FloatingMLPlayground from "@/components/FloatingMLPlayground";
+import SectionRenderer from "@/components/SectionRenderer";
+import { mlEngineering } from "@/content/sections/ml-engineering";
 
 const Index = () => {
   return (
@@ -11,10 +9,7 @@ const Index = () => {
       <Navigation />
       <main>
         <HeroSection />
-        <FloatingMLPlayground />
-        <FeaturedProjects />
-        <BlogPreview />
-        <PortfolioProgress />
+        <SectionRenderer section={mlEngineering} />
       </main>
     </div>
   );

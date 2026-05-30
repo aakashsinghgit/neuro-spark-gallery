@@ -1,20 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Download, Mail, MapPin, Linkedin, Trophy, Cpu, Brain, Zap, Database, Play, BookOpen, ArrowRight } from "lucide-react";
-import { heroConfig } from "@/config/hero";
+import { heroContent } from "@/content/hero";
+import { goals } from "@/content/goals";
 import { Progress } from "@/components/ui/progress";
 import { Link } from "react-router-dom";
 
-const HeroSection = () => {
-  const { profile, cta, stats, story, goals } = heroConfig;
+const iconMap: Record<string, any> = { Cpu, Brain, Zap, Database, Play, BookOpen };
 
-  const iconMap: Record<string, any> = {
-    Cpu,
-    Brain,
-    Zap,
-    Database,
-    Play,
-    BookOpen
-  };
+const HeroSection = () => {
+  const { profile, cta, stats, story } = heroContent;
 
   return (
     <section className="pt-20 pb-12 px-4 sm:px-6 lg:px-8">
@@ -28,20 +22,16 @@ const HeroSection = () => {
                 <span className="text-7xl font-bold text-foreground">AS</span>
               </div>
             </div>
-            
+
             {/* Profile Info + My Story */}
             <div className="flex-1 flex flex-col gap-4">
-              {/* Name and Tagline */}
               <div>
                 <h1 className="text-4xl md:text-5xl font-bold text-foreground font-playfair mb-2">
                   {profile.name}
                 </h1>
-                <p className="text-base text-muted-foreground">
-                  {profile.bio}
-                </p>
+                <p className="text-base text-muted-foreground">{profile.bio}</p>
               </div>
 
-              {/* My Story Content */}
               <div className="space-y-2">
                 <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
                   {story.text}
@@ -53,7 +43,6 @@ const HeroSection = () => {
                 </Button>
               </div>
 
-              {/* Location and Action Buttons */}
               <div className="flex flex-wrap items-center gap-3 text-sm">
                 <div className="flex items-center gap-2 text-muted-foreground">
                   <MapPin className="w-4 h-4" />
@@ -82,9 +71,8 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Key Achievements & Current Goals Combined */}
+          {/* Key Achievements & Current Goals */}
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Stats Section */}
             <div className="border border-border rounded-lg p-8 bg-card shadow-sm">
               <h3 className="text-xl font-semibold text-foreground mb-6 font-playfair">Key Achievements</h3>
               <div className="grid grid-cols-2 gap-6">
@@ -107,14 +95,12 @@ const HeroSection = () => {
               </div>
             </div>
 
-            {/* Current Goals */}
             <div className="border border-border rounded-lg p-8 bg-card shadow-sm">
               <h3 className="text-xl font-semibold text-foreground mb-6 font-playfair">Current Goals</h3>
               <div className="space-y-4">
                 {goals.slice(0, 4).map((goal) => {
                   const Icon = iconMap[goal.icon];
-                  const progress = (goal.current / goal.target) * 100;
-                  
+                  const progress = goal.target > 0 ? (goal.current / goal.target) * 100 : 0;
                   return (
                     <div key={goal.label}>
                       <div className="flex items-center justify-between mb-2">
