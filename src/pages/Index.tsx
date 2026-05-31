@@ -1,7 +1,7 @@
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import SectionRenderer from "@/components/SectionRenderer";
-import { mlEngineering } from "@/content/sections/ml-engineering";
+import { sections } from "@/content/sections";
 
 const Index = () => {
   return (
@@ -9,7 +9,9 @@ const Index = () => {
       <Navigation />
       <main>
         <HeroSection />
-        <SectionRenderer section={mlEngineering} />
+        {sections.map((s) => (
+          <SectionRenderer key={s.id} section={s} />
+        ))}
       </main>
     </div>
   );

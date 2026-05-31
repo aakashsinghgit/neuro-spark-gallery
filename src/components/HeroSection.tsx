@@ -4,6 +4,7 @@ import { heroContent } from "@/content/hero";
 import { goals } from "@/content/goals";
 import { Progress } from "@/components/ui/progress";
 import { Link } from "react-router-dom";
+import HunterBadge from "@/components/HunterBadge";
 
 const iconMap: Record<string, any> = { Cpu, Brain, Zap, Database, Play, BookOpen };
 
@@ -74,25 +75,27 @@ const HeroSection = () => {
           {/* Key Achievements & Current Goals */}
           <div className="grid md:grid-cols-2 gap-8">
             <div className="border border-border rounded-lg p-8 bg-card shadow-sm">
-              <h3 className="text-xl font-semibold text-foreground mb-6 font-playfair">Key Achievements</h3>
-              <div className="grid grid-cols-2 gap-6">
-                <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-foreground mb-2">{stats.projectsCompleted}</div>
-                  <div className="text-sm text-muted-foreground">Projects Completed</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-foreground mb-2">{stats.mlModelsDeployed}</div>
-                  <div className="text-sm text-muted-foreground">ML Models Deployed</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-foreground mb-2">{stats.linesOfCode}</div>
-                  <div className="text-sm text-muted-foreground">Lines of Code</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-foreground mb-2">{stats.yearsExperience}+</div>
-                  <div className="text-sm text-muted-foreground">Years Experience</div>
+              <h3 className="text-xl font-semibold text-foreground mb-6 font-playfair">Hunter Status</h3>
+              <div className="flex items-center gap-8">
+                <HunterBadge size={140} />
+                <div className="grid grid-cols-1 gap-4 flex-1">
+                  <div>
+                    <div className="text-2xl font-bold text-foreground">{stats.projectsCompleted}</div>
+                    <div className="text-xs uppercase tracking-wide text-muted-foreground">Projects shipped</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-foreground">{stats.mlModelsDeployed}</div>
+                    <div className="text-xs uppercase tracking-wide text-muted-foreground">Models deployed</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-foreground">{stats.yearsExperience}+</div>
+                    <div className="text-xs uppercase tracking-wide text-muted-foreground">Years experience</div>
+                  </div>
                 </div>
               </div>
+              <p className="text-xs text-muted-foreground mt-6">
+                Tap the badge for XP breakdown and tier map.
+              </p>
             </div>
 
             <div className="border border-border rounded-lg p-8 bg-card shadow-sm">
