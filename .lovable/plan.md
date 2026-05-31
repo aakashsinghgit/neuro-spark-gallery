@@ -1,71 +1,88 @@
+# Gamification Layer + Admin Studio (Code-Generator Mode)
 
-## Goal
+A Solo Leveling–style progression system layered on the existing portfolio. Everything stays in code, no DB, no auth, repo stays public. Admin Studio is a form UI that outputs TS snippets for you to paste.
 
-1. Preserve the current build as a `vision` snapshot.
-2. Rename the project to `the_datascience_guy` across in-code references.
-3. Stand up a structured planning doc for future phases — no feature dev yet.
+## 1. Core model (all derived from existing `src/content/*` files)
 
----
+**XP weights** (single source of truth in `src/content/xp/rules.ts`):
+- ML Engineering project: **150 XP**
+- AI Engineering project: **200 XP**
+- Open-Source contribution: **75 XP**
+- Deployed live demo (bonus on a project): **+50 XP**
+- Article published: **50 XP**
+- New section launched: **200 XP**
 
-## Phase A — Save current version as `vision` (you do this in GitHub)
+**Level formula**: linear with light curve — `level = min(100, floor(sqrt(totalXP / 10)))`. Tuned so v1.0 (3 ML projects + 2 demos = 550 XP) lands around level 7 (E-rank, "Curious"). You can tweak the divisor in one place.
 
-I can't run git commands from here, so you'll do this once in GitHub:
+**Tier mapping** (level → tier + label, fixed table in `rules.ts`):
+| Level | Tier | Label |
+|---|---|---|
+| 1–10 | E | Curious |
+| 11–25 | D | Practitioner |
+| 26–45 | C | Engineer |
+| 46–65 | B | Specialist |
+| 66–85 | A | Architect |
+| 86–100 | S | S-Tier |
 
-1. Open your repo on GitHub → branch dropdown.
-2. Type `vision` → click "Create branch: vision from main".
-3. Optional: Settings → Branches → add a protection rule on `vision` (no force-push, no deletion) so it stays as a true snapshot.
+## 2. New files
 
-After that, all my future edits on Lovable continue to land on `main`, and `vision` is frozen at today's state.
-
-> Heads-up: the Lovable project itself only tracks one active branch (`main`). `vision` will live in GitHub as a snapshot you can always diff against or restore from — but it won't be the live preview branch.
-
----
-
-## Phase B — Rename to `the_datascience_guy` (in-code only)
-
-Changes I'll make in one pass:
-
-| File | Change |
-|---|---|
-| `package.json` | `"name": "vite_react_shadcn_ts"` → `"name": "the_datascience_guy"` |
-| `README.md` | Replace boilerplate "Welcome to your Lovable project" with a real intro titled **the_datascience_guy** + short description |
-| `index.html` | `<title>` → `the_datascience_guy — Data Science Portfolio`; update `<meta name="description">`, `og:title`, `og:description`, `og:url`, `twitter:*`, add `<link rel="canonical">`, add `Organization` JSON-LD with name `the_datascience_guy` |
-| `src/components/Navigation.tsx` | Brand text currently reads "The Data Science Guy!" — keep human-readable display as **The Data Science Guy** (drop the `!`) for UI polish; the slug `the_datascience_guy` is reserved for repo/package/SEO identifiers, not display |
-
-**Out of scope for me (you handle in respective UIs):**
-- Renaming the **Lovable project** → Project Settings → rename to `the_datascience_guy`.
-- Renaming the **GitHub repo** → GitHub repo Settings → Rename. Lovable's sync will pick up the new name automatically; the published `*.lovable.app` subdomain does **not** change from a repo rename.
-
----
-
-## Phase C — Plan future phases together (no code yet)
-
-Before any dev, we lock a roadmap. I'll create a tracked planning doc at `docs/ROADMAP.md` with this structure:
-
-```text
-ROADMAP
-├── Vision (link to `vision` branch as visual reference)
-├── Phase 1 — <name>     goal · scope · success criteria · est. effort
-├── Phase 2 — <name>     ...
-├── Phase 3 — <name>     ...
-└── Backlog / Parking lot
+```
+src/content/xp/
+  rules.ts            # weights, level formula, tier table, helpers
+  compute.ts          # walks all section files + articles, returns { xp, level, tier, label, breakdown }
+src/components/
+  HunterBadge.tsx     # circular badge: tier letter (E/D/.../S) centered, level number above,
+                      # label below, XP-to-next-level ring around it. Gold on noir.
+  ProgressionPanel.tsx # optional hero strip: badge + breakdown (XP by category)
+src/pages/
+  AdminStudio.tsx     # /admin route — form-driven snippet generator (see §4)
+src/lib/
+  snippetGen.ts       # pure functions that take form data and return formatted TS code
 ```
 
-To populate it, I need your input on a few axes. I'll send them as a follow-up question set right after this plan is approved:
+## 3. Where the badge shows
 
-1. **Audience & primary goal** — recruiter funnel? client leads? community/teaching? all three?
-2. **Content depth** — full project case studies, blog/CMS, newsletter, talks/media?
-3. **Interactivity** — more ML demos like the playground? notebooks? live model endpoints?
-4. **Backend needs** — contact form, analytics, comments, auth-gated content, mailing list capture?
-5. **Polish targets** — animations, dark/light parity, accessibility pass, perf budget, SEO push?
-6. **Timeline & priority** — must-have-before-launch vs. nice-to-have vs. someday.
+- **Hero section**: replace or sit next to "Years Experience" stat with `HunterBadge` (compact size). Tap → opens `ProgressionPanel` drawer showing XP breakdown per category and progress to next level.
+- Reuses existing noir/gold tokens, no gradients, no glow — letter rendered in Playfair Display, label in Inter caps-tracking.
 
-Once you answer, I'll write `docs/ROADMAP.md` with concrete, ordered phases — each with scope, deliverables, and acceptance criteria — and we'll pick Phase 1 to kick off.
+## 4. Admin Studio (`/admin`)
 
----
+A normal route, no auth (it just generates text — nothing it produces is live until you commit code). Not linked from public nav; you reach it by typing `/admin`. `robots.txt` blocks it.
 
-## What you need to do after approving this plan
+Single page with 4 tabs:
 
-1. Create the `vision` branch on GitHub (Phase A).
-2. Rename the Lovable project and the GitHub repo to `the_datascience_guy`.
-3. Approve → I run Phase B edits, then send the Phase C question set.
+1. **Add Project** — section picker (dropdown from existing sections), title, description, tags (chip input), githubUrl, demoUrl (optional), image (optional), articles[] (repeatable). Shows live XP preview ("This will add 200 XP → level 8 D-rank"). "Copy snippet" button outputs the exact object to paste into e.g. `ml-engineering.ts`'s `projects` array.
+2. **Add Article** — title, url, source, optional projectId to attach to. Outputs either a new article in a project's `articles[]` or a new entry in a forthcoming `src/content/articles.ts`.
+3. **Add Section** — id, title, icon, tagline, description. Outputs a full new section file + the import/registration line for `src/content/sections/index.ts`.
+4. **Log Demo Deployment** — pick existing project, paste demoUrl. Outputs a one-line diff hint.
+
+Each tab also shows: target file path, exact insertion location ("append to `projects` array in `ml-engineering.ts`"), and the XP delta.
+
+## 5. Section registry (small refactor)
+
+Currently `Index.tsx` imports `mlEngineering` directly. Add `src/content/sections/index.ts` that exports `sections: SectionContent[]`. `Index.tsx` maps over it. This makes `compute.ts` and Admin Studio's section picker trivial and lets future sections (AI Eng v1.1) drop in by appending one line.
+
+## 6. README update
+
+Add the gamification framing (level 1→100, S-tier journey, why a gamified portfolio is the moat for peers) and a "Public repo is safe" note explaining: no DB, no auth, admin is offline snippet-gen.
+
+## 7. Out of scope (deferred)
+
+- No auth, no Cloud, no DB.
+- No animations (per design memory: NO animations).
+- No XP history / activity log (would need persistence).
+- No leaderboard / social features.
+
+## Technical notes
+
+- `compute.ts` is pure and runs at module load — XP/level update on every code change automatically.
+- `rules.ts` exports a single `XP_WEIGHTS` object so tweaking values is one edit.
+- Article XP: counted from `project.articles[]` on every project, plus optional standalone `articles.ts` later.
+- "Demo deployed" bonus is detected by presence of `demoUrl` on a project.
+- All new colors reuse existing semantic tokens (`--accent` gold, `--foreground` noir). No new tokens needed.
+- Admin Studio uses existing shadcn `Input`, `Textarea`, `Select`, `Tabs`, `Button` — no new deps.
+
+## Verification
+
+- v1.0 current state should compute to: 3 projects × 150 + 2 demos × 50 + 1 section × 200 = **750 XP → level 8, E-rank, "Curious"**. We'll confirm by reading the badge on the rendered hero.
+- Snippet output for each tab will be eyeballed against the existing `ml-engineering.ts` shape to ensure paste-compatibility.
