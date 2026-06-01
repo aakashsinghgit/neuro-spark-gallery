@@ -25,9 +25,9 @@ export const heroContent = {
 
   // Real numbers only. Update as projects ship.
   stats: {
-    projectsCompleted: 0,
-    mlModelsDeployed: 0,
+    projectsCompleted: 3,
+    mlModelsDeployed: 2,
     linesOfCode: "0",
-    yearsExperience: 2,
+    yearsExperience: 5,
   },
 };
