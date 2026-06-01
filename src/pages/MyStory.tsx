@@ -59,7 +59,7 @@ const MyStory = () => {
             <h2 className="text-3xl font-playfair font-bold">Career Highlights</h2>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Card>
               <CardContent className="pt-6">
                 <div className="text-3xl font-bold text-primary mb-2">
@@ -68,7 +68,7 @@ const MyStory = () => {
                 <div className="text-sm text-muted-foreground">Projects Completed</div>
               </CardContent>
             </Card>
-            
+
             <Card>
               <CardContent className="pt-6">
                 <div className="text-3xl font-bold text-primary mb-2">
@@ -77,20 +77,11 @@ const MyStory = () => {
                 <div className="text-sm text-muted-foreground">ML Models Deployed</div>
               </CardContent>
             </Card>
-            
+
             <Card>
               <CardContent className="pt-6">
                 <div className="text-3xl font-bold text-primary mb-2">
-                  {heroConfig.stats.linesOfCode}
-                </div>
-                <div className="text-sm text-muted-foreground">Lines of Code</div>
-              </CardContent>
-            </Card>
-            
-            <Card>
-              <CardContent className="pt-6">
-                <div className="text-3xl font-bold text-primary mb-2">
-                  {heroConfig.stats.yearsExperience}
+                  {heroConfig.stats.yearsExperience}+
                 </div>
                 <div className="text-sm text-muted-foreground">Years Experience</div>
               </CardContent>
