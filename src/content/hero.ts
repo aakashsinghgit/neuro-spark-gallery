@@ -27,7 +27,6 @@ export const heroContent = {
   stats: {
     projectsCompleted: 3,
     mlModelsDeployed: 2,
-    linesOfCode: "0",
     yearsExperience: 5,
   },
 };
