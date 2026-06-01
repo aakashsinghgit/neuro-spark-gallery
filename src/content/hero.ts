@@ -18,9 +18,9 @@ export const heroContent = {
   },
 
   cta: {
-    primary:   { text: "LinkedIn",        href: "https://linkedin.com/in/aakash-singh-data-scientist", icon: "Linkedin" },
-    secondary: { text: "Kaggle",          href: "https://kaggle.com/aakashsingh",                      icon: "Trophy" },
-    tertiary:  { text: "Download Resume", href: "/resume.pdf",                                          icon: "Download" },
+    primary:   { text: "LinkedIn",        href: "https://www.linkedin.com/in/aakash-singh2/", icon: "Linkedin" },
+    secondary: { text: "Kaggle",          href: "https://www.kaggle.com/aakashgbpp",          icon: "Trophy" },
+    tertiary:  { text: "Download Resume", href: "/resume.pdf",                                 icon: "Download" },
   },
 
   // Real numbers only. Update as projects ship.
