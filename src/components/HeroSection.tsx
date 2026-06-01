@@ -75,7 +75,7 @@ const HeroSection = () => {
           {/* Key Achievements & Current Goals */}
           <div className="grid md:grid-cols-2 gap-8">
             <div className="border border-border rounded-lg p-8 bg-card shadow-sm">
-              <h3 className="text-xl font-semibold text-foreground mb-6 font-playfair">Hunter Status</h3>
+              <h3 className="text-xl font-semibold text-foreground mb-6 font-playfair">Engineer Leveling</h3>
               <div className="flex items-center gap-8">
                 <HunterBadge size={140} />
                 <div className="grid grid-cols-1 gap-4 flex-1">
@@ -94,14 +94,14 @@ const HeroSection = () => {
                 </div>
               </div>
               <p className="text-xs text-muted-foreground mt-6">
-                Tap the badge for XP breakdown and tier map.
+                Tap the badge for XP breakdown, tier map, and contribution history.
               </p>
             </div>
 
             <div className="border border-border rounded-lg p-8 bg-card shadow-sm">
               <h3 className="text-xl font-semibold text-foreground mb-6 font-playfair">Current Goals</h3>
               <div className="space-y-4">
-                {goals.slice(0, 4).map((goal) => {
+                {goals.map((goal) => {
                   const Icon = iconMap[goal.icon];
                   const progress = goal.target > 0 ? (goal.current / goal.target) * 100 : 0;
                   return (

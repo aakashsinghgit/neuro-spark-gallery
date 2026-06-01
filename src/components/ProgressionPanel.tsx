@@ -69,6 +69,27 @@ const ProgressionPanel = ({ progression }: ProgressionPanelProps) => {
           })}
         </div>
       </div>
+      <div>
+        <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground mb-3">
+          XP history
+        </div>
+        <div className="border border-border rounded-lg divide-y divide-border bg-card max-h-64 overflow-y-auto">
+          {progression.history.length === 0 && (
+            <div className="p-3 text-sm text-muted-foreground">No contributions yet.</div>
+          )}
+          {progression.history.map((h, i) => (
+            <div key={i} className="flex items-center justify-between gap-3 p-3">
+              <div className="min-w-0">
+                <div className="text-sm text-foreground truncate">{h.label}</div>
+                <div className="text-[10px] uppercase tracking-wide text-muted-foreground">
+                  {h.section} · {h.kind}
+                </div>
+              </div>
+              <div className="text-sm font-semibold text-accent shrink-0">+{h.xp} XP</div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
